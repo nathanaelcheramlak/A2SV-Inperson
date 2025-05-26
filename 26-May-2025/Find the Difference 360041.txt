@@ -1,0 +1,23 @@
+# Problem: Find the Difference - https://leetcode.com/problems/find-the-difference/
+
+class Solution {
+    /**
+     * @param String $s
+     * @param String $t
+     * @return String
+     */
+    function findTheDifference($s, $t) {
+        $s_arr = str_split($s);
+        $t_arr = str_split($t);
+        
+        sort($s_arr);
+        sort($t_arr);
+        
+        for ($i = 0; $i < strlen($t); $i++) {
+            if ($i >= strlen($s) || $s_arr[$i] != $t_arr[$i]) {
+                return $t_arr[$i];
+            }
+        }
+
+    }
+}
